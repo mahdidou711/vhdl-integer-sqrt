@@ -1,0 +1,5 @@
+/sim/ghdl/work/
+/sim/work/
+/fpga/**/db/
+/fpga/**/incremental_db/
+/fpga/**/output_files/
