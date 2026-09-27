@@ -1,8 +1,8 @@
 # Integer Square Root Core in VHDL
 
-> **Quick overview** — VHDL · iterative arithmetic architecture · fixed latency · exhaustive GHDL verification over **65,536** inputs · Terasic DE1 integration preparation
+> **Quick overview** — VHDL · iterative arithmetic architecture · fixed latency · exhaustive GHDL verification over **65,536** inputs · Terasic DE1 hardware implementation
 
-A small digital-design and FPGA portfolio project implementing a synthesizable unsigned 16-bit integer square-root core. It computes `floor(sqrt(X))` as an 8-bit result using an iterative binary digit-by-digit architecture. The repository includes exhaustive verification of all 65,536 input values and files prepared for Terasic DE1 integration.
+A small digital-design and FPGA portfolio project implementing a synthesizable unsigned 16-bit integer square-root core. It computes `floor(sqrt(X))` as an 8-bit result using an iterative binary digit-by-digit architecture. The repository includes exhaustive verification of all 65,536 input values and a Terasic DE1 implementation that was functionally tested on physical hardware.
 
 ## Core architecture
 
@@ -59,7 +59,7 @@ The permanent automated test suite uses VHDL-93 and GHDL. It checks:
 
 The exhaustive reference model uses integer binary search. It is independent of the DUT's restoring recurrence, reducing the risk that implementation and oracle share the same arithmetic mistake. Mutation sanity checks were also used during development to confirm that the suite detects intentional faults; they are not part of the permanent test run.
 
-## FPGA integration preparation
+## FPGA implementation
 
 The board project targets a Terasic DE1 with an Intel Cyclone II `EP2C20F484C7` device and a 50 MHz `CLOCK_50` input.
 
@@ -103,14 +103,11 @@ To enter and calculate a value:
 
 The 20 ns constraint specifies the intended 50 MHz clock requirement. It is **not** evidence of timing closure, and no verified Fmax is claimed.
 
-### Not yet executed
+### Hardware validation
 
-- Quartus Analysis & Synthesis;
-- Quartus Fitter;
-- Assembler and programming-file generation;
-- TimeQuest timing analysis;
-- testing on physical DE1 hardware; and
-- the configured GitHub Actions workflow prior to publication.
+- Implemented and programmed on a physical Terasic DE1 board.
+- Functionally tested on the board using the switch, LED, and seven-segment interface described above.
+- No verified maximum clock frequency is claimed; the repository does not include a current TimeQuest timing-closure report.
 
 ## Project structure
 
