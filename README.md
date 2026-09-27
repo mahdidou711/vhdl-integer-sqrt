@@ -1,6 +1,8 @@
 # Integer Square Root Core in VHDL
 
-A small digital-design and FPGA portfolio project implementing a synthesizable unsigned 16-bit integer square-root core. It computes `floor(sqrt(X))` as an 8-bit result using an iterative binary digit-by-digit architecture. The repository includes exhaustive verification of all 65,536 input values and a clean Terasic DE1 integration.
+> **Quick overview** — VHDL · iterative arithmetic architecture · fixed latency · exhaustive GHDL verification over **65,536** inputs · Terasic DE1 integration preparation
+
+A small digital-design and FPGA portfolio project implementing a synthesizable unsigned 16-bit integer square-root core. It computes `floor(sqrt(X))` as an 8-bit result using an iterative binary digit-by-digit architecture. The repository includes exhaustive verification of all 65,536 input values and files prepared for Terasic DE1 integration.
 
 ## Core architecture
 
@@ -57,7 +59,7 @@ The permanent automated test suite uses VHDL-93 and GHDL. It checks:
 
 The exhaustive reference model uses integer binary search. It is independent of the DUT's restoring recurrence, reducing the risk that implementation and oracle share the same arithmetic mistake. Mutation sanity checks were also used during development to confirm that the suite detects intentional faults; they are not part of the permanent test run.
 
-## FPGA integration
+## FPGA integration preparation
 
 The board project targets a Terasic DE1 with an Intel Cyclone II `EP2C20F484C7` device and a 50 MHz `CLOCK_50` input.
 
