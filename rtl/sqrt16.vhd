@@ -5,8 +5,8 @@ use IEEE.NUMERIC_STD.ALL;
 entity sqrt16 is
     port (
         clk   : in  std_logic;
-        reset : in  std_logic;                    -- actif bas (KEY[0])
-        start : in  std_logic;                    -- SW[9]
+        reset : in  std_logic;                    -- Reset asynchrone actif a '0'.
+        start : in  std_logic;                    -- Demande de calcul, acceptee uniquement en etat IDLE.
         X_in  : in  std_logic_vector(15 downto 0);
         R_out : out std_logic_vector(7 downto 0); -- résultat
         done  : out std_logic                     -- fin calcul

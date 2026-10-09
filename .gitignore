@@ -3,3 +3,9 @@
 /fpga/**/db/
 /fpga/**/incremental_db/
 /fpga/**/output_files/
+
+# GHDL local work files
+work-obj*.cf
+
+# Quartus local workspace
+/fpga/de1/*.qws
